@@ -1,0 +1,59 @@
+﻿@model IEnumerable<MonitoringPelanggan.Models.Petuga>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Username")
+            </th>
+            <th>
+                @Html.DisplayName("Password")
+            </th>
+            <th>
+                @Html.DisplayName("Email")
+            </th>
+            <th>
+                @Html.DisplayName("Nama Lengkap")
+            </th>
+            <th>
+                @Html.DisplayName("Nomor HP")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoHp)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdPetugas">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdPetugas">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdPetugas">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

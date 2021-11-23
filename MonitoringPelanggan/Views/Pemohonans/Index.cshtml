@@ -1,0 +1,71 @@
+﻿@model IEnumerable<MonitoringPelanggan.Models.Pemohonan>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Nomor KK")
+            </th>
+            <th>
+                @Html.DisplayName("Nama Lengkap")
+            </th>
+            <th>
+                @Html.DisplayName("Alamat")
+            </th>
+            <th>
+                @Html.DisplayName("Nomor HP")
+            </th>
+            <th>
+                @Html.DisplayName("Kelayakan")
+            </th>
+            <th>
+                @Html.DisplayName("Proses")
+            </th>
+            <th>
+                @Html.DisplayName("Id Petugas")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoKk)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NamaPenuh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alamat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoHp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kelayakan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proses)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPetugasNavigation.IdPetugas)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
